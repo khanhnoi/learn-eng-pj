@@ -1,0 +1,251 @@
+@use 'scss/vars'as *;
+
+.container {
+  background-image: url('/static/img/background/bg-challenge-top.svg'),
+    url('/static/img/background/bg-challenge-bottom.svg');
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-color: $white;
+  padding: 68px 68px 16px;
+
+  .title {
+    font-weight: bold;
+    font-size: 32px;
+    font-family: $family-secondary;
+    color: $text-strong;
+    white-space: nowrap;
+  }
+
+  .coins {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      margin-left: 16px;
+    }
+  }
+
+  .description {
+    margin: auto;
+    width: 312px;
+  }
+
+  .button {
+    width: 180px;
+  }
+
+  .nextIcon {
+    margin-left: 16px;
+  }
+}
+
+.lock {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(180deg, #ffffff 0%, #e5e4fb 100%);
+  border-radius: 60px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i::before {
+    font-size: 72px;
+    color: $blue; // fallback for unsupported browsers
+    background: $purple-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+  }
+}
+
+.questions,
+.level {
+  font-weight: bold;
+  font-size: 24px;
+  color: $blue;
+  font-family: $family-secondary;
+}
+.level i::before {
+  font-size: 30px;
+  margin-left: 0;
+}
+
+.shareUrl {
+  padding: 0 24px;
+  .shareInput {
+    background: white;
+    padding-left: 48px;
+    color: #767676;
+    font-weight: 500;
+  }
+}
+
+.levelContainer {
+  font-weight: bold;
+  text-align: center;
+  color: $grey;
+  margin-bottom: 8px;
+
+  .level {
+    font-family: $family-secondary;
+    font-size: 24px;
+    margin-left: 12px;
+
+    i::before {
+      font-size: 28px;
+      margin-right: 0;
+    }
+
+    &.easy {
+      color: $green;
+    }
+
+    &.medium {
+      color: $orange;
+    }
+
+    &.hard {
+      color: $red;
+    }
+  }
+}
+
+.questionPackContainer {
+  display: inline-block;
+  position: relative;
+  padding: 24px;
+  background: #fdfdfd;
+  box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.5);
+  border-radius: 20px;
+  font-family: $family-secondary;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+  width: 160px;
+  transition: all 0.2s;
+
+  &:focus {
+    box-shadow: 0 0 0 0.125em rgba(94, 92, 230, 0.25);
+  }
+
+  .title {
+    color: $blue;
+    margin-bottom: 8px;
+    font-size: 16px;
+    text-transform: uppercase;
+
+    span {
+      display: inline-block;
+      width: 112px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .packInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .quantity i::before {
+    font-size: 16px;
+    color: $orange;
+  }
+
+  .quantity span {
+    margin-left: 4px;
+  }
+
+  .coins span {
+    margin-left: 0;
+  }
+
+  .coins i::before {
+    transform: translateY(2px);
+    color: $blue; // fallback for unsupported browsers
+    background: $purple-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+}
+
+@keyframes moveup {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: 0;
+  }
+}
+
+@keyframes showup {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.confirmModal {
+  background: $white !important;
+  text-align: center;
+  height: unset;
+  max-width: 420px;
+
+  .modalTitle {
+    font-family: $family-secondary;
+    font-weight: bold;
+    font-size: 20px;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  p {
+    font-weight: 500;
+    color: $grey-dark;
+    margin-bottom: 16px;
+  }
+
+  .textWarning {
+    color: $orange;
+    font-weight: bold;
+  }
+
+  button {
+    font-family: $family-primary;
+  }
+
+  .btnOk {
+    margin-right: 12px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .btnCancel {
+    margin-left: 12px;
+
+    .button {
+      border-width: 2px;
+      color: $grey-dark;
+      padding-left: 32px;
+      padding-right: 32px;
+
+      &:hover {
+        color: $grey-dark;
+      }
+    }
+  }
+}

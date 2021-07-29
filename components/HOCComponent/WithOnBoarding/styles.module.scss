@@ -1,0 +1,185 @@
+@use 'scss/vars' as *;
+.modalContentOnboarding {
+  padding: 0 !important;
+  width: 900px;
+
+  .onboardingContainer {
+    background-image: url('/static/img/background/bg-challenge-top.svg'),
+      url('/static/img/background/bg-challenge-bottom.svg');
+    background-position: left top, right bottom;
+    background-repeat: no-repeat, no-repeat;
+    background-color: #fff;
+
+    padding: 40px 40px 20px;
+    width: 900px;
+
+    .onboardingItemContainer {
+      display: flex;
+      margin-bottom: 32px;
+
+      .onboardingItem {
+        &:not(:last-child) {
+          margin-right: 32px;
+        }
+        border-radius: 32px;
+        background: $white;
+        padding: 40px 20px;
+        min-width: 252px;
+        font-weight: bold;
+
+        .image {
+          width: 80px;
+          height: 80px;
+          margin-bottom: 24px;
+        }
+
+        .title {
+          font-size: 24px;
+          white-space: nowrap;
+          margin-bottom: 8px;
+        }
+
+        .desc {
+          font-size: 18px;
+          color: $grey;
+        }
+      }
+    }
+
+    .onboardingButtons {
+      position: relative;
+
+      a {
+        position: absolute;
+        white-space: nowrap;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .inputHelperContainer {
+    margin-top: 8px;
+    display: flex;
+
+    i {
+      color: $text-inactive;
+      &::before {
+        font-size: 18px;
+      }
+    }
+
+    p {
+      text-align: left;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  .inputLabel {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .userInfoContainer {
+    margin: auto;
+
+    .title {
+      margin-bottom: 48px;
+    }
+
+    .inputContainer {
+      max-width: 374px;
+      margin: auto;
+
+      .dropdownRoot {
+        margin: auto;
+        text-align: left !important;
+      }
+
+      .input,
+      .dropdown {
+        padding: 8px 16px;
+        margin: auto;
+        background: #efefef;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .date {
+        padding: 12px;
+        padding-right: 20px;
+        width: 80px;
+        background: #efefef;
+        font-weight: 500;
+      }
+
+      .upMenu {
+        top: 105%;
+      }
+    }
+  }
+
+  .schoolInfoContainer {
+    padding: 0 80px;
+  }
+
+  .sliderContainer {
+    text-align: center;
+    position: relative;
+
+    > span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: transparent;
+      position: relative;
+      outline: none;
+    }
+
+    > span.active {
+      cursor: pointer;
+    }
+
+    > span::after {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: transparent;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #d0d0d0;
+    }
+
+    > span.selected::after {
+      background: linear-gradient(90deg, #5b70f6 0%, #8658f3 100%);
+    }
+
+    > span.active::after {
+      background: $white;
+      border: 2px solid #5b70f6;
+    }
+
+    > span:not(:last-child) {
+      margin-right: 58px;
+    }
+
+    > span:not(:last-child)::before {
+      content: '';
+      display: inline-block;
+      width: 70px;
+      height: 1px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(0, -50%);
+      background: #d0d0d0;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use 'scss/vars'as *;
+
+.container {
+  font-family: $family-secondary;
+  font-weight: bold;
+  font-size: 32px;
+  background: $text;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &.orange {
+    background: $orange-gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &.purple {
+    background: $purple-gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &.danger {
+    background: $danger;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

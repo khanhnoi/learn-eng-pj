@@ -1,0 +1,55 @@
+@use 'scss/vars' as *;
+
+.container {
+  min-height: calc(100vh - #{$navbar-height});
+  height: 100%;
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginContainer {
+  padding: 32px 112px;
+  margin-bottom: 24px;
+  width: 100%;
+  background: #ffffff;
+  backdrop-filter: blur(20px);
+  border-radius: $card-border-radius;
+  box-shadow: 0px 0px 20px rgba(71, 71, 71, 0.1);
+  background-image: url('/static/img/background/bg-challenge-top.svg'),
+    url('/static/img/background/bg-challenge-bottom.svg');
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-color: $white;
+
+  form {
+    max-width: 300px;
+    margin: auto;
+  }
+}
+
+.loginHeader {
+  font-family: $family-secondary;
+  font-size: 20px;
+  color: $grey-dark;
+  text-align: center;
+}
+
+.customButton {
+  button {
+    width: 164px;
+    height: 32px;
+    border-radius: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+  .loginContainer {
+    padding: 32px;
+  }
+}

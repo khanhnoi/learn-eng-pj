@@ -1,0 +1,25 @@
+@use 'scss/vars'as *;
+
+.questionNumber {
+  max-width: 280px;
+  width: 100%;
+  text-align: center;
+
+  .title {
+    font-weight: bold;
+  }
+
+  .questionsContainer {
+    max-height: calc(100vh - #{$navbar-height * 2 + 140px});
+    padding: 32px 8px 24px;
+    overflow: scroll;
+  }
+}
+
+@media (max-width: 1407px) {
+  .questionNumber {
+    .questionsContainer {
+      padding: 32px 20px 24px;
+    }
+  }
+}

@@ -1,0 +1,142 @@
+@use 'scss/vars'as *;
+
+.customIconButton {
+  button {
+    background: $purple-gradient;
+    color: white;
+    font-weight: bold;
+    padding-top: auto;
+    padding-bottom: auto;
+    border-radius: 20px;
+
+    &:hover {
+      color: $white;
+      opacity: 0.9;
+    }
+
+    &:active {
+      opacity: 0.9;
+      color: $white;
+    }
+
+    &:focus:not(:active) {
+      color: $white;
+    }
+  }
+
+  .shadow {
+    box-shadow: 0px 4px 20px $primary;
+    margin: 20px;
+  }
+
+  .btn-xxlarge {
+    height: 80px;
+    width: 80px;
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .btn-xlarge {
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .btn-large {
+    height: 48px;
+    width: 48px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .btn-medium {
+    height: 40px;
+    width: 40px;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .btn-small {
+    height: 32px;
+    width: 32px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .icon-xxlarge::before {
+    font-size: 32px;
+  }
+
+  .icon-xlarge::before {
+    font-size: 24px;
+  }
+
+  .icon-large::before {
+    font-size: 20px;
+  }
+
+  .icon-medium::before {
+    font-size: 16px;
+  }
+
+  .icon-small::before {
+    font-size: 16px;
+  }
+
+  .secondary {
+    background: $orange-gradient;
+
+    &:hover {
+      color: $white;
+      opacity: 0.9;
+    }
+
+    &:active {
+      opacity: 0.9;
+      color: $white;
+    }
+  }
+
+  .outline {
+    background: $white;
+    color: $grey;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 20px rgba(235, 235, 235, 0.5);
+    border: 1px solid $text-inactive;
+    box-shadow: 0px 4px 20px rgba(235, 235, 235, 0.5);
+
+    &:hover {
+      color: $grey;
+      background: linear-gradient(90deg, $white 0%, $white 68.12%);
+      box-shadow: 0px 4px 20px rgba(210, 210, 210, 1);
+    }
+
+    &:active {
+      background: linear-gradient(90deg, $white 44.11%, $white 68.12%);
+      color: $grey;
+    }
+  }
+
+  .grey {
+    background: #efefef;
+    color: $grey;
+    box-shadow: none;
+    border: none;
+
+    &:hover {
+      color: darken($color: $grey, $amount: 10%);
+      background: darken($color: #efefef, $amount: 10%);
+    }
+
+    &:active {
+      color: darken($color: $grey, $amount: 5%);
+      background: darken($color: #efefef, $amount: 5%);
+    }
+
+    &:focus:not(:active) {
+      color: $grey;
+      background: #efefef;
+    }
+  }
+}

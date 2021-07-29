@@ -1,0 +1,176 @@
+@use 'scss/vars'as *;
+
+.subjectContainer {
+  font-family: $family-secondary;
+  font-weight: bold;
+  width: 76px;
+  height: 76px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #ededed;
+  box-sizing: border-box;
+  display: inline-block;
+
+  padding-top: 16px;
+  color: $text;
+  background: linear-gradient(180deg, #ffffff 0%, #f1f1f1 100%);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 0.125em rgba(94, 92, 230, 0.25);
+  }
+
+  .name {
+    display: inline-block;
+    position: relative;
+    margin-top: 4px;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  .icon::before {
+    font-size: 18px;
+  }
+
+  &.selected {
+    color: $blue;
+    background: #fdfdfd;
+    box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.5);
+    border: 1px solid #fdfdfd;
+    &:focus {
+      box-shadow: 0 0 0 0.125em rgba(94, 92, 230, 0.25);
+    }
+  }
+
+  &.small {
+    display: flex;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 16px;
+
+    i {
+      margin-right: 12px;
+
+      &::before {
+        font-size: 18px;
+      }
+    }
+
+    .name {
+      margin-top: 0;
+      margin-right: 8px;
+    }
+  }
+
+  &.unselectable {
+    width: 96px;
+    height: 96px;
+    padding-top: 24px;
+
+    .name {
+      margin-top: 8px;
+    }
+
+    i {
+      &::before {
+        font-size: 28px;
+      }
+    }
+
+    &:hover {
+      .icon::before {
+        transform: none;
+      }
+    }
+  }
+
+  &.onboarding {
+    background: #fdfdfd;
+    box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.5);
+    border-radius: 20px;
+    border: none;
+    .content {
+      opacity: 0.5;
+    }
+  }
+
+  &.onboarding.selected {
+    .content {
+      opacity: 1;
+    }
+  }
+}
+
+// animation
+.subjectContainer {
+  .icon::before {
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover {
+    .icon::before {
+      transform: scale(1.2);
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: $blue;
+    left: -120%;
+    top: 0;
+  }
+
+  // &.selected::before {
+  //   animation: slideupright 0.6s forwards;
+  // }
+  &.selected .icon::before {
+    animation: popout 0.3s forwards;
+  }
+}
+
+.subjectContainer.animationOff {
+  &:hover {
+    .icon::before {
+      transform: none;
+    }
+  }
+  &.selected .icon::before {
+    animation: none;
+  }
+}
+
+@keyframes popout {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slideupright {
+  0% {
+    left: -120%;
+  }
+
+  50% {
+    left: 5%;
+  }
+
+  100% {
+    left: -120%;
+  }
+}

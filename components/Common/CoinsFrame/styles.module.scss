@@ -1,0 +1,71 @@
+@use 'scss/vars' as *;
+
+.coinContainer {
+  display: flex;
+  align-items: center;
+
+  &.nobg {
+    .coin,
+    .badge {
+      background: none;
+      box-shadow: none;
+    }
+
+    .badge {
+      color: $text-strong;
+      padding-left: 28px;
+    }
+  }
+}
+
+.coin {
+  background: $light-gradient;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 20px rgba(87, 114, 247, 0.5);
+
+  z-index: 1;
+
+  &.hasBadge {
+    box-shadow: none;
+  }
+
+  &.medium {
+    width: $coins-frame-medium;
+    height: $coins-frame-medium;
+  }
+
+  &.normal {
+    width: $coins-frame-normal;
+    height: $coins-frame-normal;
+  }
+
+  img {
+    display: block;
+    height: 65%;
+  }
+}
+
+.badge {
+  height: 28px;
+  background: $light-gradient;
+  box-shadow: 0px 4px 10px rgba(87, 114, 247, 0.15);
+  border-radius: 100px;
+  font-family: $family-secondary;
+  color: white;
+  font-weight: bold;
+  padding: 0;
+  padding-right: 12px;
+  padding-left: 36px;
+  margin-left: -31px;
+
+  display: flex;
+  align-items: center;
+
+  &.orange {
+    box-shadow: 0px 4px 10px rgba(245, 164, 52, 0.15);
+    background: $orange-gradient;
+  }
+}

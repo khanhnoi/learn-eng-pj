@@ -1,0 +1,25 @@
+.rippleEffect {
+  position: relative;
+  overflow: hidden;
+
+  .ripple {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: ripple-effect 1s linear infinite;
+  }
+}
+
+@keyframes ripple-effect {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}

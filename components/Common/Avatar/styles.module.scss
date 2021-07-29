@@ -1,0 +1,89 @@
+@use 'scss/vars' as *;
+
+.avatarContainer {
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0px 2px 4px rgba(202, 202, 202, 0.3);
+  outline: none;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    display: block;
+  }
+
+  &.large {
+    width: $avatar-size-large;
+    min-width: $avatar-size-large;
+    height: $avatar-size-large;
+  }
+
+  &.normal {
+    width: $avatar-size-normal;
+    min-width: $avatar-size-normal;
+    height: $avatar-size-normal;
+  }
+
+  &.small {
+    width: $avatar-size-small;
+    min-width: $avatar-size-small;
+    height: $avatar-size-small;
+  }
+}
+
+.letterAvatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: $purple-gradient-2;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: $family-secondary;
+
+  &.large {
+    font-size: 86px;
+  }
+
+  &.normal {
+    font-size: 16px;
+  }
+
+  &.small {
+    font-size: 14px;
+  }
+}
+
+.badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: $light-gradient;
+  box-shadow: 0px 4px 5px rgba(202, 202, 202, 0.3);
+  text-align: center;
+  color: #fdfdfd;
+
+  font-family: $family-secondary;
+  font-weight: bold;
+
+  position: absolute;
+  top: -8px;
+  left: -8px;
+
+  .text {
+    background: $purple-gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.badge.inverted {
+  background: $orange-gradient;
+}

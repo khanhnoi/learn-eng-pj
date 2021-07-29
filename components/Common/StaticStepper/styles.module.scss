@@ -1,0 +1,103 @@
+@use 'scss/vars'as *;
+
+.customStepper {
+  align-items: center;
+  position: relative;
+
+  label {
+    width: 42px;
+    height: 42px;
+    line-height: 34px;
+    border-radius: 32px;
+    text-align: center;
+    color: $grey-dark;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: $family-secondary;
+  }
+
+  .bet {
+    border: 3px solid $blue;
+    font-size: 16px;
+    line-height: 38px;
+  }
+
+  .text14 {
+    font-size: 14px;
+  }
+
+  .duration {
+    border: 3px dashed $blue;
+    transform: rotate(180deg);
+
+    span {
+      display: block;
+      transform: rotate(180deg);
+    }
+  }
+
+  .c-duration {
+    position: absolute;
+    background: $light-gradient;
+    box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.3);
+    padding-left: 12px;
+    padding-right: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    height: 24px;
+    border-radius: 12px;
+    align-self: stretch;
+    color: $primary;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+  }
+
+  .c-bet {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -45%);
+  }
+}
+
+.multiBetContainer {
+  display: flex;
+  justify-content: center;
+
+  .rankContainer:not(:last-child) {
+    margin-right: 16px;
+  }
+
+  .rank {
+    font-family: $family-secondary;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+    background: #5e5ce6;
+    color: white;
+    text-align: center;
+    line-height: 22px;
+    font-size: 12px;
+    border: none;
+    outline: none;
+
+    &.first {
+      background: linear-gradient(90deg, #f8b02e 0%, #f08a41 100%);
+      box-shadow: 0px 2.62338px 13.1169px rgba(224, 224, 224, 0.5);
+    }
+
+    &.second {
+      background: #34c759;
+      box-shadow: 0px 2.62338px 13.1169px rgba(224, 224, 224, 0.5);
+    }
+
+    &.third {
+      background: #5e5ce6;
+      box-shadow: 0px 2.62338px 13.1169px rgba(224, 224, 224, 0.5);
+    }
+  }
+}

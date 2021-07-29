@@ -1,0 +1,64 @@
+@use 'scss/vars'as *;
+
+.numberOfQuestionsGroupButton {
+  background: #f7f7f7;
+  padding: 4px;
+  border-radius: 100px;
+  position: relative;
+
+  button {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    width: 84px;
+    line-height: 19px;
+    height: 40px;
+    border-radius: 20px;
+    background: none;
+    padding: 0 12px;
+    padding-right: 24px;
+    border: none;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $grey-dark;
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s linear;
+
+    &:hover {
+      color: $blue;
+    }
+
+    &:focus:not(:active) {
+      color: $blue;
+      box-shadow: none;
+    }
+  }
+
+  .isSelected {
+    color: $white;
+
+    &:focus:not(:active) {
+      color: $white;
+    }
+  }
+
+  .animationOff.isSelected {
+    background: $purple-gradient;
+  }
+
+  .highlight {
+    background: $purple-gradient;
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    border-radius: 20px;
+    left: 0;
+    right: 10px;
+
+    &.hasTransition {
+      transition: all 0.4s ease-in-out;
+    }
+  }
+}

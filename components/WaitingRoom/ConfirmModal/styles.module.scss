@@ -1,0 +1,52 @@
+@use 'scss/vars'as *;
+
+.confirmModal {
+  background: $white !important;
+  text-align: center;
+  height: unset;
+  max-width: 512px;
+
+  .modalTitle {
+    font-family: $family-secondary;
+    font-weight: bold;
+    font-size: 20px;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  p {
+    font-weight: 500;
+    color: $grey-dark;
+    margin-bottom: 16px;
+  }
+
+  .textWarning {
+    color: $orange;
+    font-weight: bold;
+  }
+
+  button {
+    font-family: $family-primary;
+  }
+
+  .btnOk {
+    margin-right: 12px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .btnCancel {
+    margin-left: 12px;
+
+    .button {
+      border-width: 2px;
+      color: $grey-dark;
+      padding-left: 32px;
+      padding-right: 32px;
+
+      &:hover {
+        color: $grey-dark;
+      }
+    }
+  }
+}

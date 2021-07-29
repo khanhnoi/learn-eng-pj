@@ -1,0 +1,200 @@
+@use 'scss/vars' as *;
+
+.userThinkXagoe {
+  padding-top: 48px;
+  margin-top: 64px;
+  .titleContainer {
+    text-align: center;
+  }
+  .subTitle {
+    margin-top: 12px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 92px;
+  }
+  .joinBtn {
+    box-shadow: 0px 4px 20px rgba(87, 114, 247, 0.5);
+    padding: 0 40px;
+  }
+}
+
+// Component
+
+.type4Container {
+  width: 100%;
+  height: 100%;
+
+  background: transparent;
+  border-radius: 16px;
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: $light-gradient;
+    opacity: 0.5;
+    border-radius: 32px;
+    z-index: -1;
+  }
+}
+
+.type4Container {
+  background: $light-gradient;
+  border-radius: 32px;
+  z-index: unset;
+  padding: 112px 32px 40px;
+  text-align: center;
+
+  .imgContainer {
+    overflow: hidden;
+    position: absolute;
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      position: relative;
+      z-index: 1;
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+      object-fit: contain;
+      border-radius: 50%;
+    }
+  }
+
+  .quote {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+    color: $darker;
+  }
+
+  .horizontalBar {
+    width: 64px;
+    height: 2px;
+    background: $purple-gradient;
+    border-radius: 2px;
+    margin: 16px auto;
+  }
+
+  .from {
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 220px;
+    margin: auto;
+  }
+}
+
+.titlePurple {
+  color: $blue; // fallback for unsupported browsers
+  background: $purple-gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.titleOrange {
+  color: $orange; // fallback for unsupported browsers
+  background: $orange-gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.titleOrange,
+.titlePurple {
+  font-size: 56px;
+  letter-spacing: 0.05em;
+  font-family: $family-secondary;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .titleOrange,
+  .titlePurple {
+    font-size: 48px;
+  }
+  .type4Container {
+    margin-top: 64px;
+  }
+}
+
+@media (max-width: 414px) {
+  .titleOrange,
+  .titlePurple {
+    font-size: 30px;
+  }
+
+  .userThinkXagoe {
+    .subTitle {
+      margin-bottom: 32px;
+    }
+  }
+}
+
+// animation
+.type4Container {
+  .quote {
+    opacity: 0;
+  }
+  .from {
+    opacity: 0;
+  }
+  .horizontalBar {
+    width: 0;
+  }
+
+  &.animate {
+    .quote {
+      animation: quote 0.4s ease-in-out forwards;
+      animation-delay: 0.4s;
+    }
+    .from {
+      animation: from 0.4s ease-in-out forwards;
+      animation-delay: 0.4s;
+    }
+    .horizontalBar {
+      animation: bar 0.6s ease-in-out forwards;
+    }
+  }
+
+  @keyframes bar {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 64px;
+    }
+  }
+
+  @keyframes quote {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  @keyframes from {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

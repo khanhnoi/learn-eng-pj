@@ -1,0 +1,36 @@
+@use 'scss/vars'as *;
+
+.verticalSteps {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    left: 50%;
+    position: relative;
+    transform: translateX(-24px);
+  }
+
+  span {
+    font-family: $family-secondary;
+  }
+
+  .content {
+    background: #F9FAFE;
+    z-index: 2500;
+    left: -50%;
+    position: relative;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    transform: translateX(+24px);
+
+    p {
+      font-weight: bold;
+      font-family: $family-secondary;
+    }
+  }
+
+  .inactive {
+    color: $text-inactive;
+  }
+}

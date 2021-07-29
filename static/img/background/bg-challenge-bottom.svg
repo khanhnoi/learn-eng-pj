@@ -1,0 +1,18 @@
+<svg width="239" height="188" viewBox="0 0 239 188" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.6">
+<rect x="38.1516" y="218.59" width="155.229" height="24" rx="12" transform="rotate(-44.0147 38.1516 218.59)" fill="url(#paint0_linear)"/>
+<rect x="155.688" y="178.725" width="145" height="16" rx="8" transform="rotate(-44.0147 155.688 178.725)" fill="#5856D6"/>
+<rect x="153.771" y="84.6309" width="64" height="4" rx="2" transform="rotate(-44.0147 153.771 84.6309)" fill="#5856D6"/>
+<rect x="113.038" y="71.0078" width="40.3082" height="4" rx="2" transform="rotate(-44.0147 113.038 71.0078)" fill="#FF9500"/>
+<rect x="184.562" y="103.549" width="8" height="4" rx="2" transform="rotate(-44.0147 184.562 103.549)" fill="#FF2D55"/>
+<rect x="127.479" y="184.994" width="8" height="4" rx="2" transform="rotate(-44.0147 127.479 184.994)" fill="#FF9500"/>
+<line x1="77.508" y1="139.543" x2="144.39" y2="74.9224" stroke="#34C759"/>
+<line x1="200.989" y1="114.793" x2="241.981" y2="75.1867" stroke="#64D2FF"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear" x1="38.1516" y1="230.59" x2="193.38" y2="230.59" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F8B02E"/>
+<stop offset="1" stop-color="#F08A41"/>
+</linearGradient>
+</defs>
+</svg>

@@ -1,0 +1,223 @@
+@use 'scss/vars' as *;
+
+.card {
+  background: $white;
+  box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.5);
+  border-radius: 20px;
+  height: 135px;
+  padding: 16px 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.meta {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: $text-meta;
+  height: 26px;
+  position: absolute;
+  right: 24px;
+}
+
+.difficulty {
+  margin-left: -5px;
+  display: none;
+}
+
+.duration {
+  margin-left: 12px;
+  display: inline-flex;
+  align-items: center;
+  display: none;
+
+  i:before {
+    font-size: 20px;
+  }
+}
+
+.totalQuestion {
+  margin-left: 12px;
+  display: inline-flex;
+  align-items: center;
+  display: none;
+
+  i:before {
+    font-size: 20px;
+  }
+}
+
+.totalBet {
+  margin-left: 12px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.participants {
+  display: flex;
+  align-items: center;
+}
+
+.creator {
+  display: flex;
+  align-items: center;
+
+  span {
+    font-family: $family-secondary;
+    font-weight: bold;
+    font-size: 16px;
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 8px;
+  }
+}
+
+.separator {
+  width: 32px;
+  height: 0;
+  border: 1px solid $grey-light;
+  transform: rotate(-90deg);
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 32px;
+  max-height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 50%;
+  background: $light-gradient;
+  color: $blue;
+  font-size: 10px;
+  font-weight: bold;
+  opacity: 0;
+}
+
+// Animation
+
+.card {
+  width: $invitation-competition-width;
+  transition: width 0.35s ease-in-out;
+
+  .difficulty {
+    display: none;
+  }
+
+  .duration {
+    display: none;
+  }
+
+  .totalQuestion {
+    display: none;
+  }
+
+  .others {
+    display: none;
+    max-width: 0;
+    transition: max-width 0.2s;
+  }
+
+  .separator {
+    opacity: 0;
+  }
+
+  .participant {
+    opacity: 0;
+  }
+
+  .more {
+    opacity: 0;
+  }
+
+  .buttonContainer {
+    display: flex;
+  }
+
+  .acceptedButton,
+  .closeButton {
+    display: none;
+  }
+}
+
+.card.full {
+  width: 600px;
+
+  .others {
+    display: inline-flex;
+  }
+
+  .more,
+  .participant {
+    animation: moveFromRight 0.15s forwards;
+    animation-delay: 0.4s;
+  }
+
+  .separator {
+    opacity: 1;
+  }
+
+  .difficulty,
+  .duration,
+  .totalQuestion,
+  .closeButton,
+  .acceptedButton {
+    display: inline-flex;
+    transform: scale(0);
+    opacity: 0;
+    animation: moveFromLeft 0.15s forwards;
+    animation-delay: 0.2s;
+  }
+  .duration {
+    animation-delay: 0.3s;
+  }
+  .difficulty {
+    animation-delay: 0.4s;
+  }
+
+  .acceptedButton,
+  .closeButton {
+    animation: moveFromLeftNoScale 0.15s forwards;
+    animation-delay: 0.4s;
+  }
+  .acceptedButton {
+    animation-delay: 0.3s;
+  }
+}
+
+@keyframes moveFromLeftNoScale {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes moveFromLeft {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes moveFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}

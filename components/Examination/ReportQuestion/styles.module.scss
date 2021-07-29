@@ -1,0 +1,60 @@
+@use 'scss/vars'as *;
+
+.reportModal {
+  background: $white !important;
+  text-align: center;
+  padding-left: 20% !important;
+  padding-right: 20% !important;
+  height: unset;
+
+  .modalTitle {
+    font-family: $family-secondary;
+    font-weight: bold;
+    font-size: 20px;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  p {
+    font-weight: 500;
+    color: $grey;
+    margin-bottom: 16px;
+  }
+
+  button {
+    font-family: $family-primary;
+  }
+
+  .btnInactive {
+    color: #23252e;
+  }
+
+  .btnActive {
+    color: $white;
+    padding-left: 18px;
+    padding-right: 18px;
+    outline: none;
+  }
+
+  textarea {
+    background: #efefef;
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    width: 100%;
+    outline: none;
+    resize: none;
+    border: none;
+  }
+
+  .btnSubmit {
+    color: $grey-dark;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-width: 2px !important;
+
+    &:hover {
+      color: $grey-dark;
+    }
+  }
+}

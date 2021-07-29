@@ -1,0 +1,369 @@
+@use 'scss/vars' as *;
+
+.featuresXagoe {
+  position: relative;
+  z-index: 1;
+  padding-top: 48px;
+  margin-top: 64px;
+  height: 720px;
+
+  .btnExploreBattle {
+    padding: 0 40px;
+    margin-left: 20px;
+  }
+
+  .chatContainer {
+    width: 360px;
+    margin: auto;
+
+    .myChatItem {
+      width: 40%;
+      margin-left: auto;
+      padding: 24px 12px;
+    }
+
+    .wave {
+      width: 40%;
+      background: $white;
+      margin-left: auto;
+      padding: 24px 12px;
+      box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.3);
+      border-radius: 20px;
+
+      .dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: 8px;
+        background: #d0d0d0;
+        // animation: wave 1.3s linear infinite;
+        &:nth-child(2) {
+          animation-delay: -1.1s;
+        }
+
+        &:nth-child(3) {
+          animation-delay: -0.9s;
+        }
+      }
+      @keyframes wave {
+        0%,
+        60%,
+        100% {
+          transform: initial;
+        }
+
+        30% {
+          transform: translateY(-15px);
+        }
+      }
+    }
+  }
+
+  .battleCardsContainer {
+    transform: translateY(-20px);
+  }
+  .competitionRankContainer {
+    .rank {
+      width: 218px;
+      margin: auto;
+      position: relative;
+      margin-bottom: 16px;
+      &::before {
+        content: '1';
+        color: $white;
+        position: absolute;
+        left: -40px;
+
+        font: bold 18px $family-secondary;
+        text-align: center;
+        line-height: 32px;
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background: #7b8191;
+        border-radius: 50%;
+        box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.5);
+      }
+      &:nth-child(1) {
+        z-index: 1;
+        transform: scale(1.4);
+        box-shadow: 0px 4px 20px rgba(255, 149, 0, 0.5);
+      }
+
+      &:nth-child(1)::before {
+        content: '1';
+        background: $orange-gradient;
+      }
+      &:nth-child(2)::before {
+        content: '2';
+      }
+      &:nth-child(3)::before {
+        content: '3';
+      }
+      &:nth-child(4)::before {
+        content: '4';
+      }
+      &:nth-child(5)::before {
+        content: '5';
+      }
+    }
+  }
+
+  .battleRankContainer {
+    transform: translateY(-40px);
+  }
+
+  .battleKnowledgeContainer {
+    position: relative;
+    z-index: -1;
+    transform: scale(1.5) translateY(-100px);
+  }
+
+  .competitionConfigContainer {
+    width: 100%;
+    text-align: center;
+  }
+
+  .competitionBetContainer {
+    text-align: center;
+  }
+
+  .invitationCardContainer {
+    .invitationCard {
+      max-width: 100%;
+      margin-bottom: 24px;
+    }
+  }
+
+  .competitionRankContainer {
+    transform: translateY(-100px);
+  }
+
+  .challengeFeature1Container {
+    transform: translateY(-32px);
+  }
+
+  .challengeRewardContainer {
+    text-align: center;
+  }
+
+  .rewardContainer {
+    text-align: center;
+
+    .title {
+      font: bold 24px $family-primary;
+      margin-bottom: 20px;
+    }
+
+    .gift {
+      width: 220px;
+      margin-bottom: 16px;
+    }
+
+    .decs {
+      font-weight: 500;
+      margin: auto;
+      margin-bottom: 32px;
+    }
+
+    .partnersContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 72px;
+      padding: 20px 80px 0;
+      .sharetea {
+      }
+      .cupscoffee {
+        width: 80px;
+      }
+      .joy {
+        width: 80px;
+      }
+    }
+
+    .contact {
+      font-weight: bold;
+      color: $blue; // fallback for unsupported browsers
+      background: $purple-gradient;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .fadeIn {
+    animation: fadeIn 1s forwards;
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.nextFeature {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 24px;
+  span {
+    color: $orange; // fallback for unsupported browsers
+    background: $orange-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.type3Container {
+  padding: 16px 24px;
+  position: relative;
+  margin-bottom: 16px;
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &.active::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    opacity: 0;
+  }
+
+  &.active::before {
+    animation: backgroundShow 4.1s ease-in-out forwards;
+  }
+  @keyframes backgroundShow {
+    0% {
+      opacity: 0;
+    }
+    10%,
+    90% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  &.active img {
+    animation: featureShow 4.1s ease-in-out forwards;
+  }
+  @keyframes featureShow {
+    0% {
+      transform: translateY(-50%);
+    }
+
+    10%,
+    90% {
+      transform: translateY(-60%) scale(1.3);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  img {
+    position: absolute;
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    top: 50%;
+    left: 28px;
+    z-index: 1;
+    transform: translateY(-50%);
+    transition: 0.4s;
+  }
+
+  p {
+    position: relative;
+    z-index: 1;
+    padding-left: 80px;
+    line-height: 140%;
+    font-weight: bold;
+  }
+}
+
+.titlePurple {
+  color: $blue; // fallback for unsupported browsers
+  background: $purple-gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.titleOrange {
+  color: $orange; // fallback for unsupported browsers
+  background: $orange-gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.titleOrange,
+.titlePurple {
+  font-size: 56px;
+  letter-spacing: 0.05em;
+  font-family: $family-secondary;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .featuresXagoe {
+    height: unset;
+  }
+  .titleOrange,
+  .titlePurple {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 414px) {
+  .titleOrange,
+  .titlePurple {
+    font-size: 30px;
+  }
+
+  .featuresXagoe {
+    .rewardContainer {
+      .partnersContainer {
+        display: block;
+        padding: 0;
+
+        .sharetea {
+          display: block;
+          margin: auto;
+          margin-bottom: 8px;
+        }
+        .cupscoffee {
+          margin-right: 16px;
+        }
+      }
+    }
+  }
+
+  .type3Container {
+    padding: 8px 24px;
+
+    img {
+      width: 32px;
+      height: 32px;
+      top: 50%;
+      left: 16px;
+    }
+
+    p {
+      font-size: 14px;
+      padding-left: 48px;
+    }
+  }
+}

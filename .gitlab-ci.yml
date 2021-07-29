@@ -1,0 +1,90 @@
+services:
+  - docker:dind
+
+stages:
+  - build
+  - deploy
+
+variables:
+  REGISTRY_URL: '$CI_REGISTRY/$CI_PROJECT_PATH'
+  DEV_VM_ADDRESS: '$DEV_VM_USERNAME@$DEV_VM_HOST'
+  PROD_VM_ADDRESS: '$PROD_VM_USERNAME@$PROD_VM_HOST'
+  PROD_VM_ADDRESS2: '$PROD_VM_USERNAME@$PROD_VM_HOST2'
+  PROD_VM_ADDRESS3: '$PROD_VM_USERNAME@$PROD_VM_HOST3'
+  DOCKER_COMPOSE_DIR: 'docker-xagoe'
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+build-dev:
+  image: docker:latest
+  stage: build
+  script:
+    - docker build --pull --build-arg NODE_ENV=production --build-arg API_URL=$DEV_API_URL --build-arg WEB_URL=$DEV_WEB_URL --build-arg CMS_URL=$DEV_CMS_URL --build-arg FIREBASE_API_KEY=$DEV_FIREBASE_API_KEY --build-arg FIREBASE_PROJECT_ID=$DEV_FIREBASE_PROJECT_ID --build-arg FIREBASE_DATABASE_URL=$DEV_FIREBASE_DATABASE_URL --build-arg GOOGLE_ANALYTICS_TAG=$DEV_GOOGLE_ANALYTICS_TAG -t $REGISTRY_URL:dev .
+    - docker push $REGISTRY_URL:dev
+  only:
+    - release
+
+build-prod:
+  image: docker:latest
+  stage: build
+  script:
+    - docker build --pull --build-arg NODE_ENV=production --build-arg API_URL=$PROD_API_URL --build-arg WEB_URL=$PROD_WEB_URL --build-arg CMS_URL=$PROD_CMS_URL --build-arg FIREBASE_API_KEY=$PROD_FIREBASE_API_KEY --build-arg FIREBASE_PROJECT_ID=$PROD_FIREBASE_PROJECT_ID --build-arg FIREBASE_DATABASE_URL=$PROD_FIREBASE_DATABASE_URL --build-arg GOOGLE_ANALYTICS_TAG=$PROD_GOOGLE_ANALYTICS_TAG -t $REGISTRY_URL:prod .
+    - docker push $REGISTRY_URL:prod
+  only:
+    - schedules
+
+deploy-dev:
+  image: alpine:latest
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apk update && apk add openssh-client )'
+    - eval $(ssh-agent -s)
+    - echo "$DEV_VM_PRIVATE_KEY" > id_rsa
+    - chmod 600 id_rsa
+    - ssh-add ./id_rsa
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - ssh $DEV_VM_ADDRESS "mkdir -p $DOCKER_COMPOSE_DIR"
+    - ssh $DEV_VM_ADDRESS "docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY;
+      cd $DOCKER_COMPOSE_DIR;
+      docker-compose pull;
+      docker-compose up -d;
+      docker image prune -f"
+  only:
+    - release
+
+deploy-prod:
+  image: alpine:latest
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apk update && apk add openssh-client )'
+    - eval $(ssh-agent -s)
+    - echo "$PROD_VM_PRIVATE_KEY" > id_rsa
+    - chmod 600 id_rsa
+    - ssh-add ./id_rsa
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - ssh $PROD_VM_ADDRESS "mkdir -p $DOCKER_COMPOSE_DIR"
+    - ssh $PROD_VM_ADDRESS "docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY;
+      cd $DOCKER_COMPOSE_DIR;
+      docker-compose pull;
+      docker-compose up -d;
+      docker image prune -f"
+
+    # - ssh $PROD_VM_ADDRESS2 "mkdir -p $DOCKER_COMPOSE_DIR"
+    # - ssh $PROD_VM_ADDRESS2 "docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY;
+    #   cd $DOCKER_COMPOSE_DIR;
+    #   docker-compose pull;
+    #   docker-compose up -d;
+    #   docker image prune -f"
+    # - ssh $PROD_VM_ADDRESS3 "mkdir -p $DOCKER_COMPOSE_DIR"
+    # - ssh $PROD_VM_ADDRESS3 "docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY;
+    #   cd $DOCKER_COMPOSE_DIR;
+    #   docker-compose pull;
+    #   docker-compose up -d;
+    #   docker image prune -f"
+  only:
+    - schedules

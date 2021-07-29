@@ -1,0 +1,101 @@
+@use 'scss/vars' as *;
+
+.container {
+  position: fixed;
+  align-items: center;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(51, 51, 51);
+  background-color: rgba(51, 51, 51, 0.7);
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  &.local {
+    position: relative;
+    background: transparent;
+  }
+
+  &.hasLogo {
+    background: transparent;
+  }
+}
+
+.logoContainer {
+  position: absolute;
+  width: 200px;
+  left: calc(50%);
+  top: calc(50%);
+  transform: translate(-50%, -50%);
+
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.ldsEllipsis {
+  display: inline-block;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: calc(50% - 40px);
+  top: calc(50% - 40px);
+}
+.ldsEllipsis.dark div {
+  background: $blue;
+}
+.ldsEllipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.ldsEllipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.ldsEllipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.ldsEllipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.ldsEllipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}

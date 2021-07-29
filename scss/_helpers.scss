@@ -1,0 +1,124 @@
+@use './vars'as *;
+
+.has-justify-between {
+  justify-content: space-between;
+}
+
+.has-justify-center {
+  justify-content: center;
+}
+
+.has-justify-right {
+  justify-content: flex-end;
+}
+
+.has-flex-direction-column {
+  flex-direction: column;
+}
+
+.has-flex-direction-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.is-100p-height {
+  height: 100%;
+}
+
+.has-item-center {
+  align-items: center;
+}
+
+// XAGOe Font helper
+$sizes: 14, 16, 18, 20, 22, 24, 32, 40, 56;
+
+@each $size in $sizes {
+  .text-is-#{$size} {
+    font-size: #{$size}px;
+  }
+}
+
+.text-is-primary {
+  font-family: $family-primary;
+}
+
+.text-is-secondary {
+  font-family: $family-secondary;
+}
+
+.text-is-bold {
+  font-weight: bold;
+}
+
+.text-is-red {
+  color: $red;
+}
+
+.text-is-blue {
+  color: $blue;
+}
+
+.text-is-yellow {
+  color: $yellow;
+}
+
+.text-is-green {
+  color: $green;
+}
+
+.text-is-dark {
+  color: $dark;
+}
+
+.text-is-darker {
+  color: $darker;
+}
+
+.text-is-meta {
+  color: $text-meta;
+}
+
+.text-is-grey {
+  color: $grey;
+}
+
+.text-is-white {
+  color: $white;
+}
+
+.text-is-inactive {
+  color: $text-inactive;
+}
+
+.text-is-purple-gradient {
+  color: $blue; // fallback for unsupported browsers
+  background: $purple-gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-is-orange-gradient {
+  color: $orange; // fallback for unsupported browsers
+  background: $orange-gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.has-margin-bottom-24 {
+  margin-bottom: 24px !important;
+}
+
+.has-margin-left-24 {
+  margin-left: 24px !important;
+}
+
+.has-margin-right-24 {
+  margin-right: 24px !important;
+}
+
+.has-margin-top-24 {
+  margin-top: 24px !important;
+}
+
+.has-margin-bottom-48 {
+  margin-bottom: 48px !important;
+}

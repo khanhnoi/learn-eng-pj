@@ -1,0 +1,78 @@
+@use 'scss/vars'as *;
+
+.messageItem {
+  padding: 16px;
+  background: $white;
+  box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.3);
+  border-radius: 20px;
+  width: 70%;
+  margin-left: 30%;
+  word-wrap: break-word;
+}
+
+.itemPlaceholder {
+  border: 2px dashed $text-meta;
+  box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.3);
+  border-radius: 20px;
+  margin: 8px 16px;
+}
+
+.holder1 {
+  height: 100px;
+  margin-left: 0;
+  width: 80%;
+}
+
+.holder2 {
+  height: 62px;
+  width: 60%;
+  margin-left: 40%;
+}
+
+.holder3 {
+  margin-left: 0;
+  height: 62px;
+  width: 80%;
+}
+
+.textGradient {
+  background: $purple-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.others {
+  margin-left: 0;
+  background: #eff5ff;
+  box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.3);
+}
+
+.container {
+
+  .content {
+    padding-top: 16px;
+    margin-bottom: 2px;
+    overflow: scroll;
+    padding-left: 16px;
+    padding-right: 16px;
+    height: Calc(100vh - #{$navbar-height} - 160px);
+  }
+
+  .footer {
+    position: absolute;
+    right: 32px;
+    left: 32px;
+    bottom: 24px;
+
+    .input {
+      height: auto;
+      min-height: 40px;
+    }
+  }
+
+  @media(max-width: 768px) {
+    .content {
+      padding-bottom: 60px;
+    }
+  }
+}

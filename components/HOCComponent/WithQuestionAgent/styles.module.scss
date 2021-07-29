@@ -1,0 +1,111 @@
+@use 'scss/vars'as *;
+.agentContainer {
+  position: fixed;
+  bottom: 0;
+  right: 40px;
+  z-index: 1000;
+
+  background: $white;
+  border-radius: 8px 8px 0 0;
+  padding: 8px 16px 0;
+  box-shadow: 0px 4px 20px rgba(87, 114, 247, 0.5);
+  border: 1px solid rgba(87, 114, 247, 1);
+
+  .header {
+    cursor: pointer;
+    text-align: center;
+    padding: 0 0 8px;
+    padding-right: 32px;
+    position: relative;
+  }
+
+  .headerTitle {
+    color: $blue; // fallback for unsupported browsers
+    background: $purple-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .iconArrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    &::before {
+      margin: 0;
+      font-size: 20px;
+      color: $blue; // fallback for unsupported browsers
+      background: $purple-gradient;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .body {
+    display: none;
+  }
+}
+
+.agentContainer.full {
+  width: 300px;
+  text-align: center;
+  padding-bottom: 12px;
+
+  .body {
+    display: block;
+    padding: 2px;
+  }
+  .header {
+    padding-right: 0px;
+  }
+
+  .horizontalBar {
+    height: 1px;
+    background: $purple-gradient;
+    margin-bottom: 16px;
+  }
+
+  .textarea {
+    margin-bottom: 12px;
+    height: 214px;
+  }
+
+  .iconHeart {
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .thankyou {
+    font-weight: 500;
+    font-size: 14px;
+    color: $grey-darker;
+    margin-bottom: 16px;
+  }
+  .iconsContainer {
+    display: flex;
+    align-items: center;
+    a {
+      margin-left: 40px;
+    }
+
+    .icon:active {
+      transform: scale(0.95);
+    }
+
+    .iconFb {
+      border-radius: 50%;
+      box-shadow: 0px 0px 10px rgba(87, 114, 247, 0.5);
+    }
+    .iconYoutube {
+      border-radius: 4px;
+      box-shadow: 0px 0px 5px rgba(244, 67, 54, 0.3);
+    }
+    .iconInsta {
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(255, 84, 62, 0.3);
+    }
+  }
+}

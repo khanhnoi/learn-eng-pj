@@ -1,0 +1,17 @@
+@use 'scss/vars'as *;
+
+.answerItem {
+  padding: 5px;
+
+  .activeButton {
+    box-shadow: 0px 4px 20px rgba(87, 114, 247, 0.5);
+  }
+
+  .button {
+    background: $white;
+    box-shadow: 0px 4px 20px rgba(235, 235, 235, 0.5);
+    border-radius: 20px;
+    color: $grey-dark;
+    font-weight: bold;
+  }
+}

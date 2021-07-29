@@ -1,0 +1,13 @@
+@use 'scss/vars'as *;
+
+.container {
+  margin: 0;
+  padding: 0;
+  min-height: Calc(100vh - #{$navbar-height});
+
+  @media (max-width: 768px) {
+    .leftCol {
+      padding: 16px;
+    }
+  }
+}

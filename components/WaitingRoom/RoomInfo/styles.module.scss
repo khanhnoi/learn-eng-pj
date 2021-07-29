@@ -1,0 +1,68 @@
+@use 'scss/vars'as *;
+
+.infoContainer {
+  .shareInput {
+    background: white;
+    padding-left: 48px;
+    color: #767676;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid #d0d0d0;
+  }
+
+  .questions,
+  .level {
+    font-weight: bold;
+    font-size: 24px;
+    color: $blue;
+    font-family: $family-secondary;
+  }
+
+  .level i::before {
+    font-size: 30px;
+    margin-left: 0;
+  }
+
+  .button {
+    width: 120px;
+    font-family: $family-secondary;
+    height: 32px;
+  }
+}
+
+.roomInfoContainer {
+  .betContainer,
+  .levelContainer,
+  .questionContainer {
+    margin-bottom: 12px;
+  }
+
+  .durationContainer {
+    margin-bottom: 40px;
+  }
+
+  .betContainer,
+  .durationContainer {
+    p {
+      margin-bottom: 12px;
+    }
+  }
+
+  .levelQuestionContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  @media (max-height: 800px) {
+    .battle.levelQuestionContainer {
+      flex-direction: row;
+    }
+  }
+
+  @media (max-height: 700px) {
+    .levelQuestionContainer {
+      flex-direction: row;
+    }
+  }
+}

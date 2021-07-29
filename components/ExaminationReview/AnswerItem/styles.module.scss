@@ -1,0 +1,71 @@
+@use 'scss/vars'as *;
+
+.answerItem {
+  padding: 5px;
+  margin-bottom: 20px;
+
+  p {
+    color: $grey-darker;
+    font-weight: 500;
+  }
+
+  .button {
+    background: $blue-light;
+    box-shadow: 0px 4px 20px rgba(235, 235, 235, 0.5);
+    border-radius: 20px;
+    color: $grey-dark;
+    font-weight: bold;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: $grey-dark
+    }
+
+    &:focus:not(:active) {
+      color: $grey-dark
+    }
+  }
+
+  .wrong {
+    background: $red;
+    color: $white;
+
+    &:active,
+    &:focus,
+    &:hover,
+    &:focus:not(:active) {
+      box-shadow: 0px 4px 20px rgba(235, 235, 235, 0.5);
+      color: $white;
+      border: $grey-light solid 1px;
+    }
+  }
+
+  .correct {
+    background: $green;
+    color: $white;
+
+    &:active,
+    &:focus,
+    &:hover,
+    &:focus:not(:active) {
+      box-shadow: 0px 4px 20px rgba(235, 235, 235, 0.5);
+      color: $white;
+      border: $grey-light solid 1px;
+    }
+  }
+
+  .noAnswer {
+    background: $grey;
+    color: $white;
+
+    &:active,
+    &:focus,
+    &:hover,
+    &:focus:not(:active) {
+      box-shadow: 0px 4px 20px rgba(235, 235, 235, 0.5);
+      color: $white;
+      border: $grey-light solid 1px;
+    }
+  }
+}

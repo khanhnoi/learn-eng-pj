@@ -1,0 +1,71 @@
+@use 'scss/vars' as *;
+
+// Landing
+.landingContainer {
+  background: linear-gradient(180deg, #e5e4fb 0%, #f7ecdf 50%, #e5e4fb 100%);
+  min-height: 300vh;
+  position: relative;
+  scroll-behavior: smooth;
+
+  .colorBurnBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/img/background/bg-home-1-full.svg');
+    background-position: right top -56px;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    mix-blend-mode: color-burn;
+    opacity: 0.8;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .firstBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/img/background/bg-landing-top-2.png');
+    background-position: right top 60px;
+    background-repeat: no-repeat;
+    background-size: 770px;
+    z-index: -1;
+  }
+}
+
+// Component
+// Responsive
+@media (max-width: 1024px) {
+  .landingContainer {
+    padding: 0 20px;
+    .firstBackground {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .landingContainer {
+    padding: 0 12px;
+
+    .colorBurnBackground {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 414px) {
+  .landingContainer {
+    .footerContainer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

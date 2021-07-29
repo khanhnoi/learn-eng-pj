@@ -1,0 +1,84 @@
+@use 'scss/vars'as *;
+
+.card {
+  background: $white;
+  box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.3);
+  border-radius: 20px;
+  height: 135px;
+  padding: 16px 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.meta {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: $text-meta;
+}
+
+.difficulty {
+  margin-left: -5px;
+}
+
+.duration {
+  margin-left: 12px;
+  display: inline-flex;
+  align-items: center;
+
+  i:before {
+    font-size: 20px;
+  }
+}
+
+.totalQuestion {
+  margin-left: 12px;
+  display: inline-flex;
+  align-items: center;
+
+  i:before {
+    font-size: 20px;
+  }
+}
+
+.totalBet {
+  margin-left: 12px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.participants {
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  width: 32px;
+  height: 0;
+  border: 1px solid $grey-light;
+  transform: rotate(-90deg);
+}
+
+.more {
+  display: flex;
+  align-items: center;
+  color: $text-inactive;
+  font-size: 14px;
+  font-weight: bold;
+
+  i {
+    color: $text-inactive;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: 260px;
+  }
+
+  .btnJoin {
+    width: 100%;
+    margin-top: 16px;
+  }
+}

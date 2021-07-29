@@ -1,0 +1,219 @@
+@use 'scss/vars'as *;
+
+.container {
+  background-image: url('/static/img/background/bg-challenge-top.svg'),
+    url('/static/img/background/bg-challenge-bottom.svg');
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-color: $white;
+  padding: 68px;
+
+  .title {
+    font-weight: bold;
+    font-size: 32px;
+    font-family: $family-secondary;
+    color: $text-strong;
+  }
+
+  .coins {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      margin-left: 16px;
+    }
+  }
+
+  .description {
+    margin: auto;
+    width: 280px;
+  }
+
+  .button {
+    width: 180px;
+  }
+}
+
+.rankContainer {
+  padding: 12px 24px;
+
+  .rank {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+
+  .position {
+    min-width: 40px;
+    min-height: 40px;
+
+    border-radius: 50%;
+    background: #7b8191;
+    box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.5);
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 8px;
+
+    &.firstPos {
+      background: $orange-gradient;
+    }
+  }
+
+  .coins {
+    position: absolute;
+    top: -20px;
+    right: -12px;
+    animation: showup 0.5s forwards;
+    transform: scale(0);
+  }
+
+  @media (max-width: 1407px) {
+    padding: 12px;
+    .position {
+      min-width: 32px;
+      min-height: 32px;
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 1215px) {
+    .position {
+      min-width: 24px;
+      min-height: 24px;
+    }
+  }
+}
+
+.competitionInfoContainer {
+  text-align: center;
+  padding: 32px 24px;
+
+  .title {
+    color: $grey;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .subject {
+    font: bold 20px $family-secondary;
+    color: $grey-darker;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+
+  .creatorContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    .creator {
+      margin-left: 8px;
+      text-align: left;
+      .creatorName {
+        font: bold 16px $family-secondary;
+        color: $grey-darker;
+      }
+      .creatorUsername {
+        font-size: 14px;
+        font-weight: 500;
+        color: $text-inactive;
+      }
+    }
+  }
+  .date {
+    color: $grey-darker;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+
+  .participantsContainer {
+    display: flex;
+    justify-content: center;
+
+    > div:not(:last-child) {
+      margin-right: 8px;
+    }
+    .more {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 32px;
+      max-height: 32px;
+      min-width: 32px;
+      min-height: 32px;
+      border-radius: 50%;
+      background: $purple-gradient;
+      color: $white;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 1407px) {
+    padding: 32px 12px;
+  }
+  @media (max-width: 1215px) {
+    padding: 32px 0;
+  }
+}
+
+.questions,
+.level {
+  font-weight: bold;
+  font-size: 24px;
+  color: $blue;
+  font-family: $family-secondary;
+}
+.level i::before {
+  font-size: 30px;
+  margin-left: 0;
+}
+
+.shareUrl {
+  padding: 0 24px;
+  .shareInput {
+    background: white;
+    padding-left: 48px;
+    color: #767676;
+    font-weight: 500;
+  }
+}
+
+.userInfo {
+  position: relative;
+  opacity: 0;
+  animation: moveup 0.7s forwards;
+}
+
+.position {
+  opacity: 0;
+  animation: moveup 0.7s forwards;
+}
+
+@keyframes moveup {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: 0;
+  }
+}
+
+@keyframes showup {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

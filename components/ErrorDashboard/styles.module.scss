@@ -1,0 +1,36 @@
+@use 'scss/vars' as *;
+
+.errorContainer {
+  align-items: center;
+  min-height: calc(100vh - #{$navbar-height});
+  background: #dfe4f7;
+
+  .container {
+    box-shadow: 0px 4px 20px rgba(235, 235, 235, 0.5);
+    border-radius: 20px;
+    min-height: calc(100vh - #{$navbar-height * 2});
+    text-align: center;
+    background-image: url('/static/img/background/bg-challenge-top.svg'),
+      url('/static/img/background/bg-challenge-bottom.svg');
+    background-position: left top, right bottom;
+    background-repeat: no-repeat, no-repeat;
+    background-color: rgba(253, 253, 253, 0.8);
+    padding-top: 64px;
+  }
+
+  .img404 {
+    width: 310px;
+  }
+
+  .title {
+    margin-top: 60px;
+    margin-bottom: 12px;
+    color: $grey;
+    font: bold 20px $family-secondary;
+  }
+
+  .desc {
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+}

@@ -1,0 +1,54 @@
+@use 'scss/vars' as *;
+
+.footerContainer {
+  margin-top: 60px;
+  min-height: 64px;
+  border-top: 0.5px solid $grey;
+
+  display: flex;
+  align-items: center;
+
+  span {
+    font-weight: 500;
+  }
+
+  a {
+    font-weight: bold;
+    position: relative;
+    margin-left: 32px;
+
+    color: $blue; // fallback for unsupported browsers
+    background: $purple-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  a::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: $purple-gradient;
+
+    position: absolute;
+    top: 50%;
+    left: -16px;
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 414px) {
+  .footerContainer {
+    flex-direction: column;
+    align-items: flex-start;
+
+    span {
+      font-size: 14px;
+    }
+    a {
+      font-size: 14px;
+      margin-left: 16px;
+    }
+  }
+}

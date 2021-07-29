@@ -1,0 +1,79 @@
+@use 'scss/vars' as *;
+
+.sliderContainer {
+  text-align: center;
+  span {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    color: $text-inactive;
+    outline: none;
+    cursor: pointer;
+    padding-bottom: 8px;
+    position: relative;
+  }
+
+  span::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    animation-delay: 0.1s;
+  }
+  @keyframes fulfill {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  span.small {
+    margin: 0 12px;
+  }
+
+  span.medium {
+    margin: 0 16px;
+  }
+
+  span.large {
+    margin: 0 24px;
+  }
+
+  span.purple {
+    color: $blue; // fallback for unsupported browsers
+    background: $purple-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  span.orange {
+    color: $orange; // fallback for unsupported browsers
+    background: $orange-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  span.purple::after {
+    background: $purple-gradient;
+    animation: fulfill 0.4s forwards;
+  }
+
+  span.orange::after {
+    background: $orange-gradient;
+    animation: fulfill 0.4s forwards;
+  }
+}
+
+@media (max-width: 414px) {
+  .sliderContainer {
+    span.medium {
+      margin: 0 16px;
+    }
+  }
+}

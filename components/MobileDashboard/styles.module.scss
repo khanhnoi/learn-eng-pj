@@ -1,0 +1,72 @@
+@use 'scss/vars'as *;
+
+.mobileContainer {
+  margin-top: -$navbar-height !important;
+  min-height: 100vh;
+  background: $light-gradient;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  padding: 64px 0;
+
+  .logo {
+    margin-bottom: 32px;
+  }
+
+  .mobilePic {
+    margin-bottom: 24px;
+  }
+
+  .desc {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .desc.gradient {
+    color: $blue; // fallback for unsupported browsers
+    background: $purple-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .findMore {
+    color: $grey-dark;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+
+  .iconsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon:active {
+      transform: scale(0.95);
+    }
+
+    .iconFb {
+      border-radius: 50%;
+      box-shadow: 0px 0px 10px rgba(87, 114, 247, 0.5);
+    }
+    .iconYoutube {
+      margin-left: 40px;
+      border-radius: 4px;
+      box-shadow: 0px 0px 5px rgba(244, 67, 54, 0.3);
+    }
+    .iconInsta {
+      margin-left: 40px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(255, 84, 62, 0.3);
+    }
+  }
+
+  @media (max-width: 332px) {
+    .desc {
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,112 @@
+@use 'scss/vars'as *;
+
+.createCompetition {
+  text-align: center;
+
+  .content {
+    background: $white;
+    height: 100%;
+    position: relative;
+    overflow: scroll;
+    padding-bottom: 72px;
+  }
+
+  .container {
+    background: $white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 20px rgba(235, 235, 235, 0.5);
+    height: calc(100vh - #{$navbar-height * 2});
+    overflow: hidden;
+    margin-right: 32px;
+    margin-top: $navbar-height / 2;
+    position: relative;
+
+    .questionName {
+      background: #efefef;
+      height: 40px;
+      line-height: 40px;
+      padding-left: 24px;
+      padding-right: 24px;
+      border: 1px solid #f7f7f7;
+      box-sizing: border-box;
+      font-family: $family-secondary;
+      font-weight: bold;
+      border-radius: 20px;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 20px;
+      font-family: $family-secondary;
+      text-align: center;
+    }
+
+    .header {
+      padding: 8px 32px 32px 32px;
+    }
+
+    .body {
+      justify-content: center;
+    }
+
+    .footer {
+      position: absolute;
+      padding: 0 24px 32px 24px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 8px;
+      margin-bottom: 0;
+
+      .nextIcon {
+        margin-left: 16px;
+      }
+    }
+
+    .alertButtonContainer {
+      position: relative;
+      z-index: 1;
+    }
+    .alertIcon {
+      color: $orange;
+    }
+  }
+
+  .questionNumbers {
+    margin: auto;
+    margin-top: 32px;
+  }
+
+  .footerSidebar {
+    position: absolute;
+    bottom: 32px;
+    left: 0;
+    right: 0;
+
+    .btnFinish {
+      box-shadow: 0px 4px 20px rgba(224, 224, 224, 1);
+      color: $grey-dark;
+      border-width: 2px;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      margin: 10px;
+      height: unset;
+
+      .footer {
+        position: relative;
+        display: flex;
+      }
+    }
+
+    .footerSidebar {
+      position: relative;
+      bottom: unset;
+      margin-top: 20px;
+    }
+  }
+}

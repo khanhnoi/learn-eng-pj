@@ -1,0 +1,74 @@
+@use 'scss/vars'as *;
+
+.customTab {
+  background: #f7f7f7;
+  padding: 4px;
+  border-radius: 100px;
+  position: relative;
+
+  button {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    height: 40px;
+    border-radius: 20px;
+    background: none;
+    padding-left: 32px;
+    padding-right: 32px;
+    border: none;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $text;
+    transition: color 0.4s linear;
+
+    &:hover {
+      color: $blue;
+    }
+
+    &:focus:not(:active) {
+      color: $white;
+      box-shadow: none;
+    }
+  }
+
+  .isSelected {
+    color: $white;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .highlight {
+    background: $purple-gradient;
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    border-radius: 20px;
+    left: 0;
+    right: 10px;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0px 4px 20px rgba(94, 92, 230, 0.3);
+  }
+}
+
+.customTab.inverted {
+  .highlight {
+    background: $white;
+  }
+
+  button {
+    font-family: $family-secondary;
+  }
+
+  button.isSelected {
+    color: $blue; // fallback for unsupported browsers
+    background: $purple-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

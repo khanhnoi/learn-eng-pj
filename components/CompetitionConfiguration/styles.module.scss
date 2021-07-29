@@ -1,0 +1,88 @@
+@use 'scss/vars'as *;
+
+.container {
+  margin: 0;
+  padding: 0;
+  min-height: calc(100vh - #{$navbar-height});
+
+  .leftCol {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .leftCol {
+      padding: 16px;
+    }
+  }
+}
+
+.configuration {
+  background: $white;
+  height: Calc(100vh -#{$navbar-height} -64px);
+  padding-top: 72px;
+
+  .header {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+  }
+
+  .sliderContainer,
+  .selectSubjectContainer {
+    margin-bottom: 32px;
+  }
+
+  .footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 8px;
+  }
+
+  @media (max-height: 700px) {
+    .stepperContainer {
+      margin-top: -24px;
+    }
+    .sliderContainer {
+      margin-bottom: 0;
+    }
+    .selectSubjectContainer {
+      margin-top: -32px;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.tipsContainer {
+  padding: 8px 24px;
+  .number {
+    display: inline-block;
+    border: 1.5px dashed #ff9500;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.3);
+    border-radius: 200px;
+    width: 28px;
+    height: 28px;
+    line-height: 24px;
+    color: #ff9500;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .text {
+    margin-left: 24px;
+  }
+
+  @media (max-width: 1215px) {
+    padding: 8px 0px;
+
+    img {
+      width: 32px;
+    }
+    .text {
+      margin-left: 12px;
+    }
+  }
+}

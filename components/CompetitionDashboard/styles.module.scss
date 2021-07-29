@@ -1,0 +1,311 @@
+@use 'scss/vars'as *;
+
+.competitionContainer {
+  .invitationContainer {
+    width: $invitation-competition-width + 48px;
+    position: fixed;
+    z-index: 1;
+    height: calc(100vh - #{$navbar-height});
+    overflow: scroll;
+    transition: width 0.25s ease-in-out;
+    box-sizing: border-box;
+    margin: 0 -24px;
+    padding: 0 20px;
+    padding-right: 28px;
+    margin-right: -28px;
+
+    &.expanded {
+      width: 640px;
+    }
+
+    .invitationCard {
+      opacity: 0;
+      animation: moveFromLeft 0.4s forwards;
+      margin-bottom: 24px;
+    }
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      background: linear-gradient(
+        180deg,
+        rgba(253, 253, 253, 0) 0%,
+        rgba(253, 253, 253, 0.81) 12.5%,
+        #d1c5ee 100%
+      );
+      // backdrop-filter: blur(4px);
+      transition: all 0.4s linear;
+      transition-delay: 0.2s;
+    }
+
+    &.expanded::before {
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
+    }
+  }
+
+  .competitionFriendsContainer {
+    padding-left: $invitation-competition-width + 32px;
+  }
+}
+
+.userContainer,
+.invitationSubContainer {
+  .placeholder {
+    border: 1.5px dashed $text-meta;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.3);
+    border-radius: 20px;
+    height: 72px;
+    position: relative;
+  }
+
+  .userPlaceHolder {
+    position: relative;
+
+    .avatarHolder {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      left: 16px;
+      top: calc(50% - 40px / 2);
+      border: 1.5px dashed $text-meta;
+      box-sizing: border-box;
+    }
+
+    .vector {
+      width: 35px;
+      height: 39px;
+      position: absolute;
+      top: 70px;
+      left: -30px;
+    }
+  }
+}
+
+.invitationContainer {
+  .upcommingPlaceholder {
+    margin: -1rem;
+  }
+  .placeholder {
+    border-color: #9a9a9a;
+    height: 120px;
+  }
+
+  .userPlaceHolder {
+    position: relative;
+
+    .avatarHolder {
+      top: unset;
+      bottom: 16px;
+      border-color: #9a9a9a;
+    }
+
+    .vector {
+      width: unset;
+      height: unset;
+      top: 100%;
+      left: 50%;
+    }
+  }
+}
+
+.roomContainer {
+  background: $white;
+  box-shadow: 0px 4px 20px rgba(235, 235, 235, 0.5);
+  border-radius: 20px;
+  padding: 32px 20px;
+
+  .searchBox {
+    width: 50%;
+    margin-bottom: 8px;
+  }
+
+  .cluesText {
+    font-size: 14px;
+  }
+
+  @media (max-width: 1408px) {
+    .cluesText {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 1216px) {
+    .searchBox {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}
+
+.userContainer {
+  height: calc(100vh - #{$navbar-height} - 348px);
+  overflow: auto;
+  border-radius: 4px;
+  padding: 12px 30px 0;
+  margin: -12px -30px 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: sticky;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(
+      180deg,
+      rgba(253, 253, 253, 0) 0%,
+      rgba(253, 253, 253, 0.81) 72.5%,
+      #fdfdfd 100%
+    );
+  }
+
+  .spinner {
+    height: 20px;
+  }
+
+  .userInvitationCard {
+    opacity: 0;
+    animation: moveup 0.7s forwards;
+  }
+
+  .userInvitationCard.animationOff {
+    opacity: 1;
+    animation: none;
+  }
+
+  .hidePaticipant {
+    opacity: 1;
+  }
+
+  .touchable {
+    cursor: pointer;
+    transition: 0.4s;
+    border-radius: 20px;
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 4px 8px rgba(211, 209, 209, 0.5);
+    }
+    &:active {
+      outline: none;
+    }
+  }
+}
+
+.buttonContainer {
+  background: transparent;
+  margin-top: -48px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  > div:first-child {
+    padding-left: 32px;
+  }
+
+  @media (max-width: 1408px) {
+    div:first-child {
+      padding-left: 0;
+    }
+    .mainButton {
+      padding-left: 34px;
+      padding-right: 34px;
+    }
+  }
+}
+
+.competitionStatisticContainer {
+  height: calc(100vh - #{$navbar-height * 2});
+  margin-top: 12px;
+  border-radius: 20px;
+  background: $white;
+  box-shadow: 0px 4px 20px rgba(235, 235, 235, 0.5);
+  padding: 0 24px;
+  padding-top: 32px;
+  backdrop-filter: blur(20px);
+
+  .statisContainer {
+    .statisType {
+      margin: auto;
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        color: $grey;
+        white-space: nowrap;
+        font-weight: bold;
+        padding: 0 40px;
+      }
+    }
+    .statis {
+      font-size: 32px;
+    }
+  }
+}
+
+@keyframes moveup {
+  from {
+    opacity: 0;
+    transform: translateY(72px);
+  }
+
+  to {
+    opacity: 1;
+    transform: 0;
+  }
+}
+
+@keyframes moveFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-72px);
+  }
+
+  to {
+    opacity: 1;
+    transform: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+  .competitionContainer {
+    .invitationContainer {
+      display: none;
+    }
+
+    .competitionFriendsContainer {
+      padding-left: 16px;
+    }
+  }
+
+  .buttonContainer {
+    flex-direction: column;
+    align-items: center;
+
+    > div:first-child {
+      padding-left: 0;
+      margin-bottom: 24px;
+    }
+  }
+
+  .competitionStatisticContainer {
+    display: none;
+  }
+}

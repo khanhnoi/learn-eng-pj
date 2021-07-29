@@ -1,0 +1,67 @@
+@use 'scss/vars' as *;
+
+// Navbar
+.navbar {
+  box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.5);
+
+  .customMenubar {
+    position: relative;
+    align-items: center;
+  }
+  .customLink {
+    cursor: pointer;
+    outline: none;
+    font-weight: 500;
+    font-size: 14px;
+    color: #7b8191;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+      background: $white;
+    }
+  }
+  .customLink.selected {
+    color: $blue; // fallback for unsupported browsers
+    background: $purple-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .activeItem {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #5b70f6 0%, #8658f3 100%);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .navbarEnd {
+    display: flex;
+    align-items: center;
+  }
+
+  .buttonContainer {
+    margin-left: 16px;
+  }
+
+  .backToBattle {
+    font-family: $family-primary;
+  }
+}
+
+// Responsive
+@media (max-width: 1024px) {
+  .navbar {
+    .customLink {
+      display: block;
+    }
+
+    .activeItem {
+      display: none;
+    }
+    .navbarEnd {
+      display: none;
+    }
+  }
+}

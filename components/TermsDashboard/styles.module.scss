@@ -1,0 +1,47 @@
+@use 'scss/vars' as *;
+
+.termsContainer {
+  background: linear-gradient(180deg, #e5e4fb 0%, #f7ecdf 50%, #e5e4fb 100%);
+  position: relative;
+
+  .container {
+    padding: 32px 0 0;
+    min-height: calc(100vh - #{$navbar-height});
+    margin: auto;
+
+    .contentContainer {
+      background: rgba(253, 253, 253, 0.5);
+      border-radius: 16px;
+      padding: 32px 72px 64px;
+    }
+    .title {
+      font: bold 20px $family-secondary;
+      color: $grey-dark;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .content {
+      font-weight: 500;
+      line-height: 1.2;
+      text-align: justify;
+      p {
+        margin-bottom: 8px;
+      }
+      h1 {
+        margin-top: 20px;
+        margin-bottom: 12px;
+      }
+      a {
+        color: $text;
+      }
+    }
+    .signature {
+      margin-top: 32px;
+      margin-right: 32px;
+      font-weight: bold;
+      font-family: $family-secondary;
+      text-align: right;
+      font-size: 20px;
+    }
+  }
+}

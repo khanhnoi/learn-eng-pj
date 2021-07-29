@@ -1,0 +1,57 @@
+@use 'scss/vars'as *;
+
+.buttonFb {
+  cursor: pointer;
+  background: #38539b;
+  color: $white;
+  font-weight: bold;
+  padding-top: auto;
+  padding-bottom: auto;
+  border-radius: 20px;
+  border: none;
+  height: 40px;
+  padding: 0px;
+  padding-left: 20px;
+  font-size: 16px;
+
+  box-shadow: 0px 4px 20px rgba(87, 114, 247, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline: none;
+
+  &.round {
+    padding: 0;
+    width: 40px;
+    justify-content: center;
+
+    span {
+      display: none;
+    }
+
+    img {
+      margin-right: 0;
+    }
+  }
+
+  span {
+    flex: 1;
+  }
+
+  img {
+    height: 16px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    box-shadow: 0px 4px 5px rgba(87, 114, 247, 0.5);
+  }
+}

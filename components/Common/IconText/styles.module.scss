@@ -1,0 +1,13 @@
+@use 'scss/vars'as *;
+
+.customIconText {
+  color: $grey;
+
+  .icon {
+    color: $text-meta
+  }
+
+  .icon::before {
+    font-size: 20px;
+  }
+}

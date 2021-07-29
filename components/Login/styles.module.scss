@@ -1,0 +1,192 @@
+@use 'scss/vars' as *;
+
+.container {
+  min-height: calc(100vh - #{$navbar-height});
+  height: 100%;
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginContainer {
+  padding: 32px 112px;
+  margin-bottom: 24px;
+  width: 100%;
+  background: #ffffff;
+  backdrop-filter: blur(20px);
+  border-radius: $card-border-radius;
+  box-shadow: 0px 0px 20px rgba(71, 71, 71, 0.1);
+  background-image: url('/static/img/background/bg-challenge-top.svg'),
+    url('/static/img/background/bg-challenge-bottom.svg');
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-color: $white;
+
+  form {
+    max-width: 300px;
+    margin: auto;
+  }
+}
+
+.loginHeader {
+  font-family: $family-secondary;
+  font-size: 20px;
+  color: $grey-dark;
+  text-align: center;
+}
+
+.socialButton {
+  width: 120px;
+  height: 32px !important;
+  font-family: $family-secondary;
+  border-radius: 16px !important;
+  padding: 0 12px !important;
+
+  display: flex;
+  justify-content: flex-start;
+
+  .buttonIcon {
+    margin-left: 0 !important;
+  }
+  .buttonText {
+    font-size: 16px;
+    line-height: 1;
+    font-weight: bold;
+    flex: 1;
+  }
+}
+
+.socialButton.facebook {
+  background-color: #4267b2;
+  color: white;
+  border: none;
+  box-shadow: 1px 1px 10px rgba(66, 103, 178, 0.3);
+
+  &:focus {
+    outline: none;
+    color: white;
+    box-shadow: 0 0 0 0.125em rgba(66, 103, 178, 0.25);
+  }
+
+  &:hover {
+    background-color: #3c60a8;
+    color: white;
+  }
+
+  &:active {
+    background-color: #395da5;
+  }
+}
+
+.socialButton.google {
+  background-color: #f70059;
+  color: white;
+  box-shadow: 1px 1px 10px rgba(247, 0, 89, 0.3);
+  border: none;
+
+  &:focus {
+    outline: none;
+    color: white;
+    box-shadow: 0 0 0 0.125em rgba(247, 0, 89, 0.25);
+  }
+
+  &:hover {
+    background-color: #f1075d;
+    color: white;
+  }
+
+  &:active {
+    background-color: #e90559;
+  }
+}
+
+.customCheckbox {
+  cursor: pointer;
+  font-weight: 600;
+
+  &::before {
+    content: '';
+    margin-top: -2px;
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border: 1px solid $grey-dark;
+    border-radius: 8px;
+    transition: all 0.05s;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 2px;
+    opacity: 0;
+    width: 8px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+  &:active::before {
+    transform: scale(0.9);
+  }
+
+  &:hover::before {
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.customCheckboxInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+
+  &:checked + .customCheckbox::before {
+    border-color: $orange;
+    background-color: $orange;
+
+    box-shadow: $card-box-shadow;
+  }
+
+  &:checked + .customCheckbox::after {
+    opacity: 1;
+  }
+
+  &:focus + .customCheckbox::before {
+    box-shadow: 0 0 0 3px rgba(211, 133, 17, 0.12);
+  }
+}
+
+.customButton {
+  button {
+    width: 164px;
+    height: 32px;
+    border-radius: 100px;
+  }
+}
+
+.forgotPassword {
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+  .loginContainer {
+    padding: 32px;
+  }
+}

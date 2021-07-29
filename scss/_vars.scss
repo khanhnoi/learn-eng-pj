@@ -1,0 +1,78 @@
+// XAGOE Basic Colors
+$blue: #5e5ce6;
+$grey: #7b8191;
+$grey-darker: #333333;
+$grey-dark: #535353;
+$grey-light: #f6f6f6;
+$blue-light: #e9f3ff;
+$cyan: #1caba9;
+$red: #ff2d55;
+$yellow: #f7b84e;
+$yellow-light: #fffaf1;
+$white: #fdfdfd;
+$green: #34c759;
+$orange: #ff9500;
+
+// XAGOE Primary Colors
+$primary: $blue;
+$link: $blue;
+$info: $cyan;
+$success: $green;
+$warning: $yellow;
+$danger: $red;
+$dark: $grey-dark;
+$darker: $grey-darker;
+$text: $grey-dark;
+$text-strong: $grey-darker;
+$text-meta: #d0d0d0;
+$text-inactive: #9a9a9a;
+$purple-gradient: linear-gradient(90deg, #5b70f6 0%, #8658f3 100%);
+$light-gradient: linear-gradient(180deg, #ffffff 0%, #e5e4fb 100%);
+$orange-gradient: linear-gradient(90deg, #f8b02e 0%, #f08a41 100%);
+$green-gradient-transparent: linear-gradient(
+  90deg,
+  rgba(48, 185, 82, 0.5) 0%,
+  rgba(48, 209, 88, 0.5) 100%
+);
+$red-gradient-transparent: linear-gradient(
+  90deg,
+  rgba(255, 59, 48, 0.5) 0%,
+  rgba(255, 69, 58, 0.5) 100%
+);
+$purple-gradient-transparent: linear-gradient(
+  90deg,
+  rgba(91, 112, 246, 0.5) 0%,
+  rgba(134, 88, 243, 0.5) 100%
+);
+$purple-gradient-2: linear-gradient(90deg, #be68df -0.14%, #8376d8 99.5%);
+$orange-gradient-transparent: linear-gradient(
+  90deg,
+  rgba(248, 177, 46, 0.5) 0%,
+  rgba(240, 138, 65, 0.5) 100%
+);
+
+// Bulma Steps
+$steps-vertical-min-height: 9em;
+$steps-marker-size: 3;
+$steps-default-color: #e1e1e1;
+$steps-divider-size: 0.2em;
+
+// XAGOE Generic Styles
+$family-primary: 'Quicksand';
+$family-secondary: 'Roboto Condensed';
+$body-size: 16px;
+
+// XAGOE Common Styles
+$left-sidebar-width: 72px;
+$card-border-radius: 16px;
+$avatar-size-large: 186px;
+$avatar-size-normal: 40px;
+$avatar-size-small: 32px;
+$card-box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.3); // deprecated, to be deleted
+$card-border-radius: 20px; // deprecated, to be deleted
+$coins-frame-normal: 32px;
+$coins-frame-medium: 64px;
+$subject-tag-size: 96px;
+$navbar-height: 56px;
+$navbar-padding-vertical: 0px;
+$invitation-competition-width: 240px;

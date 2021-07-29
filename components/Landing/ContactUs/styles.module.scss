@@ -1,0 +1,211 @@
+@use 'scss/vars' as *;
+
+.contactUs {
+  padding-top: 64px;
+  margin-top: 48px;
+
+  .titlePurple {
+    line-height: 1;
+    letter-spacing: 0.03em;
+  }
+
+  .xagoeLogo {
+    padding-right: 24px;
+    display: inline-block;
+  }
+
+  .dhaLogo {
+    display: inline-block;
+    padding-left: 24px;
+    border-left: 2px solid #c4c4c4;
+    height: 32px;
+  }
+
+  .iconsContainer {
+    display: flex;
+    align-items: center;
+    a {
+      margin-left: 40px;
+    }
+
+    .icon:active {
+      transform: scale(0.95);
+    }
+
+    .iconFb {
+      border-radius: 50%;
+      box-shadow: 0px 0px 10px rgba(87, 114, 247, 0.5);
+    }
+    .iconYoutube {
+      border-radius: 4px;
+      box-shadow: 0px 0px 5px rgba(244, 67, 54, 0.3);
+    }
+    .iconInsta {
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(255, 84, 62, 0.3);
+    }
+  }
+
+  .needYou {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+
+    .subTitlePurple {
+      color: $blue; // fallback for unsupported browsers
+      background: $purple-gradient;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      font: bold 36px $family-secondary;
+      display: inline-block;
+      padding-right: 8px;
+    }
+  }
+
+  .donateButton {
+    box-shadow: 0px 4px 20px rgba(254, 182, 97, 0.5);
+    padding: 0 40px;
+  }
+
+  .formContainer {
+    padding: 40px 32px 56px;
+    background: #fff;
+    box-shadow: 0px 4px 20px rgba(87, 114, 247, 0.5);
+    border-radius: 32px;
+
+    .title {
+      color: $grey;
+      font: bold 32px $family-secondary;
+    }
+
+    .textarea {
+      min-height: 160px;
+    }
+
+    .button {
+      box-shadow: 0px 4px 20px rgba(87, 114, 247, 0.5);
+      padding: 0 40px;
+    }
+  }
+
+  .info1022 {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .icon {
+      margin: 0 3.2px;
+      position: absolute;
+      left: 0px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+    }
+
+    .desc {
+      display: inline-block;
+      padding-left: 32px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .image {
+      margin-left: 8px;
+    }
+  }
+}
+
+// Component
+.type5Container {
+  margin-bottom: 16px;
+  position: relative;
+
+  i {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  i::before {
+    font-size: 16px;
+    color: $blue; // fallback for unsupported browsers
+    background: $purple-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 140%;
+  }
+  span {
+    display: inline-block;
+    padding-left: 32px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 140%;
+  }
+  a {
+    color: $text;
+  }
+}
+
+.titlePurple {
+  color: $blue; // fallback for unsupported browsers
+  background: $purple-gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.titleOrange {
+  color: $orange; // fallback for unsupported browsers
+  background: $orange-gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.titleOrange,
+.titlePurple {
+  font-size: 56px;
+  letter-spacing: 0.05em;
+  font-family: $family-secondary;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .titleOrange,
+  .titlePurple {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 414px) {
+  .titleOrange,
+  .titlePurple {
+    font-size: 30px;
+  }
+  .contactUs {
+    .xagoeLogo {
+      padding-right: 12px;
+      img {
+        height: 28px;
+      }
+    }
+
+    .dhaLogo {
+      padding-left: 12px;
+      img {
+        height: 28px;
+      }
+    }
+    .donateButton {
+      padding: 0 20px;
+    }
+
+    .formContainer {
+      padding: 20px 16px 24px;
+    }
+
+    .info1022 .image {
+      display: none;
+    }
+  }
+}

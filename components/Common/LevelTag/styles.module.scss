@@ -1,0 +1,30 @@
+@use 'scss/vars'as *;
+
+.level {
+  font-weight: bold;
+  font-size: 24px;
+  color: $blue;
+  font-family: $family-secondary;
+
+  &.easy {
+    color: $green;
+  }
+
+  &.medium {
+    color: $orange;
+  }
+
+  &.hard {
+    color: $red;
+  }
+}
+
+.level.small i::before {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.level i::before {
+  font-size: 30px;
+  margin-left: 0;
+}

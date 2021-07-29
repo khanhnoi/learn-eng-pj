@@ -1,0 +1,56 @@
+@use 'scss/vars'as *;
+
+.card {
+  background: $white;
+  box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.3);
+  border-radius: 20px;
+  height: 72px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .textActive {
+    color: $primary;
+    font-weight: bold !important;
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.info {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.action {
+  position: absolute;
+  top: 14px;
+  right: 12px;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  i:before {
+    font-size: 18px;
+  }
+}
+
+.cardInactive {
+  opacity: 0.6;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(224, 224, 224, 0.3);
+}

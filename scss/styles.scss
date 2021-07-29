@@ -1,0 +1,531 @@
+@use './vars'as *;
+@import './animate';
+@import './helpers';
+@import '~bulma';
+@import '~bulma-helper-spacing/spacing';
+@import '~bulma-tooltip';
+@import '~bulma-switch';
+@import '~bulma-steps-component/bulma-steps';
+@import 'react-responsive-carousel/lib/styles/carousel';
+@import 'react-datepicker/dist/react-datepicker';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #fff;
+  scroll-behavior: smooth;
+}
+
+// html.is-clipped,
+// .is-clipped .modal {
+// padding-right: 17px;
+// }
+
+h1 {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: $family-secondary;
+  color: $darker;
+}
+
+h2 {
+  font-family: $family-primary;
+  font-size: 18px;
+  font-weight: bold;
+  color: $dark;
+}
+
+.navbar-item {
+  font-weight: 600;
+
+  &.selected {
+    font-weight: 700;
+  }
+}
+
+.button {
+  &.is-primary {
+    box-shadow: 1px 1px 10px rgba(30, 134, 255, 0.2);
+  }
+
+  &.is-danger {
+    box-shadow: 1px 1px 10px rgba(247, 59, 0, 0.3);
+  }
+}
+
+.label {
+  font-weight: $weight-semibold;
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-bottom: 0.25em;
+  }
+}
+
+.input,
+.textarea {
+  &:not(.is-danger) {
+    border: none;
+  }
+
+  height: 40px;
+  padding: 16px;
+  background: #f1f1f1;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 100px;
+
+  &.is-danger {
+    box-shadow: 0px 4px 20px rgba(255, 66, 29, 0.25);
+    border-width: 2px;
+  }
+}
+
+.textarea {
+  height: auto;
+  resize: none;
+}
+
+// Trick for changing color autofill
+input.input:-webkit-autofill {
+  box-shadow: 0 0 0 50px #f1f1f1 inset;
+  -webkit-box-shadow: 0 0 0 50px #f1f1f1 inset;
+  -webkit-text-fill-color: #333;
+}
+
+input.input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 50px #f1f1f1 inset;
+  -webkit-box-shadow: 0 0 0 50px #f1f1f1 inset;
+  -webkit-text-fill-color: #333;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+a {
+  &:hover {
+    text-decoration: underline;
+    color: #0e71e2;
+  }
+}
+
+hr {
+  background-color: $text;
+  height: 1px;
+}
+
+.modal-background {
+  background-color: rgba(10, 10, 10, 0.5);
+}
+
+[data-tooltip]:hover:before {
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+.right-sidebar-layout {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  height: calc(100vh - #{$navbar-height * 2});
+  position: sticky;
+  right: 0;
+  top: $navbar-height;
+  margin-top: $navbar-height / 2;
+  overflow: scroll;
+  padding: 0;
+}
+
+.left-sidebar-layout {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  height: calc(100vh - #{$navbar-height * 2});
+  position: sticky;
+  right: 0;
+  top: $navbar-height;
+  margin-top: $navbar-height / 2;
+  overflow: hidden;
+  padding: 0;
+}
+
+.col-sidebar-right {
+  right: 0;
+  position: absolute;
+  top: $navbar-height / 2;
+  bottom: $navbar-height / 2;
+  border-radius: 20px;
+  height: Calc(100vh - #{$navbar-height * 2});
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  overflow: scroll;
+}
+
+.col-sidebar-left {
+  left: 0;
+  position: absolute;
+  top: $navbar-height / 2;
+  bottom: $navbar-height / 2;
+  border-radius: 20px;
+  height: Calc(100vh - #{$navbar-height * 2});
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  overflow: scroll;
+}
+
+html.has-navbar-fixed-top {
+  padding-top: $navbar-height;
+}
+
+.carousel .slide {
+  background: none;
+  height: 100% !important;
+}
+
+.carousel,
+.slider-wrapper,
+.slider {
+  height: 100%;
+}
+
+.carousel-root {
+  height: 100%;
+}
+
+// scrollbar
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #535353;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+// Toastify
+.Toastify__toast {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 16px !important;
+  font-weight: bold;
+  font-family: $family-primary;
+  backdrop-filter: blur(5px);
+  padding: 16px !important;
+}
+
+.Toastify__toast--success {
+  background: $green-gradient-transparent !important;
+}
+
+.Toastify__toast--info {
+  background: $purple-gradient-transparent !important;
+}
+
+.Toastify__toast--warning {
+  background: $orange-gradient-transparent !important;
+}
+
+.Toastify__toast--error {
+  background: $red-gradient-transparent !important;
+}
+
+.ReactCollapse--collapse {
+  transition: height 500ms;
+}
+
+.animation-node-enter {
+  opacity: 0;
+}
+
+.animation-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.animation-node-exit {
+  opacity: 1;
+}
+
+.animation-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.competition-container {
+  border-radius: 20px;
+  box-shadow: 0px 4px 20px rgba(235, 235, 235, 0.5);
+  border-radius: 20px;
+  height: calc(100vh - #{$navbar-height * 2});
+  max-width: 700px;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 16px;
+  position: relative;
+  overflow: auto;
+}
+
+// Dropdown
+.Dropdown-root {
+  .Dropdown-control {
+    height: 40px;
+    border-radius: 24px;
+    border: none;
+  }
+
+  .Dropdown-menu {
+    border-radius: 20px;
+  }
+
+  .Dropdown-arrow {
+    top: 50%;
+    transform: translateY(-50%) translateX(-6px);
+  }
+}
+
+// checkbox
+.b-checkbox {
+  position: relative;
+}
+
+.b-checkbox label {
+  padding-left: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+
+  font-family: $family-primary;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: #535353;
+  margin-left: 8px;
+  border-radius: 4px;
+}
+
+.b-checkbox label::before {
+  content: '';
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  top: 1px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: background 0.1s ease-in-out;
+}
+
+.b-checkbox label::after {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 3px;
+  top: 3px;
+  font-size: 12px;
+  color: #363636;
+}
+
+.b-checkbox input[type='checkbox'],
+.b-checkbox input[type='radio'] {
+  opacity: 0;
+  z-index: 1;
+  width: 0;
+  cursor: pointer;
+}
+
+.b-checkbox input[type='checkbox']:focus + label::before,
+.b-checkbox input[type='radio']:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.b-checkbox input[type='checkbox']:checked + label::after,
+.b-checkbox input[type='radio']:checked + label::after {
+  content: '✔';
+}
+
+.b-checkbox input[type='checkbox']:disabled,
+.b-checkbox input[type='radio']:disabled {
+  cursor: not-allowed;
+}
+
+.b-checkbox input[type='checkbox']:disabled + label,
+.b-checkbox input[type='radio']:disabled + label {
+  opacity: 0.65;
+}
+
+.b-checkbox input[type='checkbox']:disabled + label::before,
+.b-checkbox input[type='radio']:disabled + label::before {
+  background-color: whitesmoke;
+  cursor: not-allowed;
+}
+
+.b-checkbox.is-inline {
+  display: inline-block;
+  font-weight: normal;
+}
+
+.b-checkbox.is-inline + .is-inline {
+  margin-left: 10px;
+}
+
+.is-primary input[type='checkbox']:checked + label::before {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.is-primary input[type='checkbox']:checked + label::after {
+  color: #fff;
+}
+
+input[type='checkbox'] .styled:checked + label::before {
+  color: #fff;
+}
+
+input[type='checkbox'] .styled:checked + label::after {
+  color: #fff;
+}
+
+// end checkbox
+
+@media (max-width: 1408px) {
+  .col-sidebar-left {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .col-sidebar-left,
+  .col-sidebar-right {
+    position: relative;
+    height: unset;
+  }
+}
+
+// React datepicker
+.react-datepicker__header {
+  background-color: $primary;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0;
+  color: #ffffff;
+  overflow: hidden;
+  border: none;
+
+  .react-datepicker__current-month,
+  .react-datepicker-time__header,
+  .react-datepicker-year-header,
+  .react-datepicker__day-name {
+    color: #ffffff;
+  }
+}
+
+.react-datepicker__header--time {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0;
+}
+
+.react-datepicker__time-container {
+  border-bottom-right-radius: 0;
+  overflow: hidden;
+}
+
+.react-datepicker {
+  font-family: $family-primary;
+  border-radius: 0px;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__month-text--in-selecting-range,
+.react-datepicker__month-text--in-range,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__quarter-text--in-selecting-range,
+.react-datepicker__quarter-text--in-range {
+  border-radius: 20px;
+  background-color: $primary;
+  outline: none;
+
+  &:active,
+  &:focus {
+    border-radius: 20px;
+    background-color: $primary;
+    outline: none;
+  }
+}
+.react-datepicker__time-container {
+  border: none;
+}
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item--selected {
+  background-color: $primary;
+}
+
+.react-datepicker-wrapper {
+  display: block;
+  width: 100%;
+
+  .react-datepicker__input-container {
+    display: block;
+    width: 100%;
+    position: relative;
+
+    input {
+      width: 100%;
+      height: 40px;
+      border-radius: 99px;
+      border: none;
+      background: #efefef;
+      padding: 8px 16px;
+      outline: none;
+      font-weight: 500;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: calc(50% - 7px);
+      right: 16px;
+      width: 16px;
+      height: 16px;
+      background: url('/static/img/icons/icon-calendar.svg') no-repeat;
+    }
+  }
+}
+
+// Infinite scroll
+.infinite-scroll-component {
+  padding: 24px;
+  margin: -24px;
+}

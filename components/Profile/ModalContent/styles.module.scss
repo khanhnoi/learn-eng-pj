@@ -1,0 +1,66 @@
+.userInfoContainer {
+  .dropdownRoot {
+    margin: auto;
+    text-align: left !important;
+  }
+
+  .input,
+  .dropdown {
+    padding: 8px 16px;
+    margin: auto;
+    background: #efefef;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .date {
+    padding: 12px;
+    padding-right: 20px;
+    width: 80px;
+    background: #efefef;
+    font-weight: 500;
+  }
+
+  .upMenu {
+    position: absolute;
+    bottom: 105%;
+    top: unset;
+  }
+}
+
+.userBioContainer {
+  .input {
+    width: 374px;
+    height: 140px;
+    padding: 16px;
+  }
+}
+
+.userChangePassword {
+  .input {
+    padding: 12px;
+    margin: auto;
+    background: #efefef;
+    font-weight: 500;
+  }
+}
+
+.userUpdateSubjects {
+  .subjectContainer {
+    max-width: 460px;
+  }
+
+  .subject:not(:last-child) {
+    margin-right: 24px;
+    background: #f7f7f7;
+    border: 1px solid #ededed;
+  }
+}
+
+.characters {
+  color: #9a9a9a;
+  text-align: left !important;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 16px;
+}

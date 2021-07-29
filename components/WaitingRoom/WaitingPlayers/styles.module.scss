@@ -1,0 +1,72 @@
+@use 'scss/vars'as *;
+
+.waitingRoom {
+  background: $white;
+
+  .title {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: $family-secondary;
+    text-align: center;
+    color: $grey-darker;
+  }
+
+  .header {
+    padding: 16px 32px 0;
+  }
+
+  .body {
+    justify-content: center;
+  }
+
+  .footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 8px;
+  }
+
+  .footerGradient {
+    margin-bottom: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(253, 253, 253, 0.9) 12.5%,
+      rgba(253, 253, 253, 0.9) 0%,
+      #fdfdfd 100%
+    );
+  }
+
+  .playersContainer {
+    height: calc(100% - 220px);
+    overflow: auto;
+    width: 100%;
+    padding-bottom: 40px;
+
+    .player:not(.animationOff) {
+      opacity: 0;
+      animation: showup 0.6s forwards;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .waitingRoom {
+    width: unset;
+    margin-top: 64px;
+  }
+}
+@keyframes showup {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

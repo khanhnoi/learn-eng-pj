@@ -1,0 +1,73 @@
+@use 'scss/vars'as *;
+
+$left-sidebar-bg: rgba(249, 250, 249, 1);
+
+.container {
+  position: fixed;
+  width: $left-sidebar-width;
+  background: $left-sidebar-bg;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 9;
+  top: $navbar-height * 1.5;
+
+  .avatars {
+    padding-bottom: 24px;
+  }
+}
+
+.itemContainer {
+  position: relative;
+}
+
+.timer {
+  text-align: center;
+  padding-top: 16px;
+  border-bottom: 2px solid #f7f7f7;
+  margin-left: 8px;
+  margin-right: 8px;
+
+  p {
+    margin-top: 8px;
+    color: $grey-dark;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+}
+
+.btnHide {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 12px;
+  background: transparent;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border: none;
+    border-radius: 0;
+    box-shadow: none !important;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  img {
+    margin-left: 5px;
+  }
+}
+
+.animatedDiv {
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: none;
+  }
+}
